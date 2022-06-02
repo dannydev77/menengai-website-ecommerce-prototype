@@ -1,0 +1,118 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-3">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'store' %}">Shop</a></li>
+
+                <li class="breadcrumb-item active" aria-current="page">Products</li>
+            </ol>
+        </nav>
+        <h3 class="text-center">Shop</h3>
+    </div>
+    <br>
+    <div class="row mt-3">
+
+        <!-- filter starts here -->
+        <div class="col-md-3">
+          <div class="border  p-2">
+            <h3>Categories</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><a href="{% url 'store' %}">All</a> <span style="text-align: right;">  [ {{ categories.count }} ]</span></li>
+                {% for category in categories %}
+                <li class="list-group-item"><a href="{% url 'store' %}?category={{category.name}}">
+                    {{ category.name }} 
+                </a>
+                <span style="text-align: right;"> [ {{ category.products.all.count }} ]</span>
+
+            </li>
+
+                {% endfor %}
+            </ul>
+         
+            <h3>Filters</h3>
+            <form action="" method="get">
+                {{my_filter.form|crispy}}
+                <input type="submit" name="search" class="btn btn-primary mt-3 mb-3 ">
+
+            </form>
+
+            <h3>Price</h3>
+            <div class="checkboxes">
+                <input type="radio">
+            </div>
+            <div class="form-check pl-0 mb-3 mt-3">
+                <input type="radio" class="form-check-input" id="under25" name="materialExampleRadios">
+                <label class="form-check-label small text-uppercase card-link-secondary" for="under25">Under $5</label>
+            </div>
+          </div>
+            
+        </div>
+        <!-- filter ends here -->
+
+        
+        <div class="col-md-9 ">
+            <h3 class="mb-3" style="text-align: center;">Products [{{products.count}}]  </h3>
+            <!--            card start-->
+            <div class="row">
+                {% for product in products %}
+                <div class="col-lg-4 md-6 sm-12">
+                    <div class="card mb-3">
+                        <img src="{{ product.image.url }}"  alt="..." style="width: 100%; height:200px;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ product.name }}</h5>
+                            <h5 class="card-text">Ksh: {{ product.price }}</h5>
+
+                            <button data-product="{{ product.id }}" data-action="add" class="btn btn-outline-primary update-cart"><i class="fas fa-cart-plus"> Add to Cart</i></button>
+                            
+                            <a href="{% url 'detail' product.slug %}" class="btn btn-primary">View</a>
+
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <div class="p-2 contain">
+                    
+                <h2 class="alert alert-danger">No Products Available</h2>
+                </div>
+                {% endfor %}
+
+            </div>
+
+
+            <!--            card ends -->
+            <!-- Pagination start -->
+
+            <div class="row mt-3 ml-1">
+            <span class="current text-muted">
+                    </span>
+                <ul class="pagination mr-2">
+
+                    <li class="page-item"><a href="#" class="page-link">Prev</a></li>
+                    <li class="page-item"><a href="#" class="page-link">First</a></li>
+
+
+                    <li class="page-item"><a class="active page-link">1</a></li>
+
+
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+
+
+                    <li class="page-item"><a href="#" class="page-link">Last</a></li>
+                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
+
+                </ul>
+
+            </div>
+            <!-- pagination ends -->
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

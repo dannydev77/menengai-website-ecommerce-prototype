@@ -1,0 +1,100 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+<style type="text/css">
+
+
+</style>
+{% block content %}
+<div class="container mt-3">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <nav aria-label="breadcrumb m-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item "><a href="{% url 'store' %}">Shop</a></li>
+
+                    <li class="breadcrumb-item active" aria-current="page">Cart </li>
+                </ol>
+            </nav>
+            <h2 class="text-center">Cart</h2>
+        </div>
+    </div>
+    <a class="btn btn-outline-primary" href="{% url 'store' %}">&larr; Continue Shopping</a>
+    <br>
+</div>
+<section id="cart-container" class="container">
+    <div class="row my-4">
+
+        <table width="100%">
+            <thead>
+            <tr>
+                
+                <td>Image</td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Sub-total</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+
+            <tr>
+                <!--  
+                <td><a href="#"><i class="fas fa-trash-alt"></i></a></td> -->
+                <td><img src="{{ item.product.image_path_url }}" alt="image"></td>
+                <td><h5>{{ item.product.name }}</h5></td>
+                <td><h5>Ksh: {{ item.product.price  }}</h5></td>
+                <td><div style="align-items:flex-end;"> {{item.quantity}}
+                    
+                    <img style="width: 15px; height: 15px;" src="{% static 'images/font_up.png' %}" alt="img" data-product="{{ item.product.id }}" data-action="add" class="chg-quantity update-cart">
+                    
+                    <img style="width: 15px; height: 15px;" src="{% static 'images/down.png' %}" alt="img" data-product="{{ item.product.id }}" data-action="remove" class="chg-quantity update-cart">
+                </div></td>
+                <!-- <td><input style="width: 50%;" class="pl-1" value="{{ item.quantity }}" type="number"></td> -->
+                <td><h5>Ksh: {{ item.get_total }}</h5></td>
+            </tr>
+            {% empty %}
+            <h3 class="alert alert-warning">No Items in the Cart</h3>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</section>
+<section id="cart-bottom" class=" container">
+    <div class="row">
+        <div class="coupon col-lg-4 col-md-4 col-sm-12">
+<!--            <h5>Something</h5>-->
+<!--            <p>something else here</p>-->
+<!--            <input type="text" placeholder="code">-->
+<!--            <button class="btn btn-secondary">Apply</button>-->
+        </div>
+
+        <div class="total col-lg-8 col-md-8 col-sm-12">
+            <h5>Cart Total</h5>
+
+            <hr class="second-hr">
+            <div class="d-flex justify-content-between">
+
+                <p><strong>Total Items</strong></p>
+                <h6><strong>{{ order.get_cart_items }}</strong></h6>
+            </div>
+            <div class="d-flex justify-content-between">
+
+                <p><strong>Shipping</strong></p>
+                <p>Shiping to: Nakuru</p>
+                <h6><strong>500</strong></h6>
+            </div>
+            <div class="d-flex justify-content-between">
+
+                <p><strong>Total Price</strong></p>
+                <h6><strong>Ksh: {{ order.get_cart_total }}</strong></h6>
+            </div>
+            <a href="{% url 'checkout' %}" class="btn btn-outline-success m-2" target="">Proceed to checkout &rarr;</a>
+        </div>
+    </div>
+
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,136 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">About</li>
+        </ol>
+    </nav>
+    <h3 class="text-center">Our Heritage</h3>
+
+
+
+<section class="section-body">
+    <div class="timeline">
+
+        <div class="container left">
+            <div class="content">
+                <h2>1988</h2>
+                <p> Menengai Oil Refinaries Ltd began in 1988 by Mr.P.D.Shap and his father Mr.D.K.Shah.
+                    The organization started from humble beginnings in upholstery business the referred to as Menengai
+                    Drapers Ltd.
+                </p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>1990</h2>
+                <p>Later, in 1990 three brothers jointly registered the Menengai Soap Factory Ltd.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>1994</h2>
+                <p>The manufacture of soap was a successful venture and in 1994 the company ventured into manufacture of
+                    edible cooking oil thus the birth of Menengai Oil Refinaries Ltd.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>2011</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container left">
+            <div class="content">
+                <h2>2015</h2>
+                <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea
+                    mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto
+                    primis ea eam.</p>
+            </div>
+        </div>
+        <div class="container right">
+            <div class="content">
+                <h2>Today</h2>
+                Today, the company is renowned for the manufacture and distribution of leading products such as Top Fry
+                Vegetable Cooking Oil, Karibu, Menengai Cream and more.
+
+            </div>
+        </div>
+    </div>
+</section>
+<h2>Milestones</h2>
+<p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
+    vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per,
+    habeo iusto primis ea eam.
+    Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum,
+    vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per,
+    habeo iusto primis ea eam.Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto
+    mnesarchum,
+    vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per,
+    habeo iusto primis ea eam.Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto
+    mnesarchum,
+    vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per,
+    habeo iusto primis ea eam.Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto
+    mnesarchum,
+    vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per,
+    habeo iusto primis ea eam.
+</p>
+
+
+<h2>vision</h2>
+<p>At Menengai Oil, we aspire to be at the heart of all our stakeholders, we believe in shared success. We envision
+    having our products available in every home in East and Central Africa. We are driven by ambition and by the
+    satisfaction of our consumers. Quality experiences by our consumers are central to our success.</p>
+<h2>mission</h2>
+<p>
+    Our mission is to be the number one producer of home care goods and consumables in East Africa. We aspire to be the
+    heartbeat of every home in our target market. As we grow, our mission is to grow those around us, giving back to our
+    society is core to our success.
+</p>
+<h2>Core Values</h2>
+<p>Accountability</p>
+<p>Integrity</p>
+<p>Honesty</p>
+<p>Reliability</p>
+<p></p>
+<h2>Strategic Plan</h2>
+<h3>Thematic issues</h3>
+
+<h2>Faqs</h2>
+
+<h3>Accordion</h3>
+<h1>Management</h1>
+<h1>Menengai Accountability and Responsibility</h1>
+<h2>Social Accountability</h2>
+<h2>Environmental concerns</h2>
+<h2>Employee Welfare</h2>
+<h2>Customer satisfaction</h2>
+<h2>Government Regulations</h2>
+<h2>Mentorship and Sponsorship</h2>
+<h1>Testimonials</h1>
+</div>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+
+</script>
+{% endblock %}

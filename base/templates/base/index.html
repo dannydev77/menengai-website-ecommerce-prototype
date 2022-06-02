@@ -1,0 +1,85 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% block content %}
+<!-- Slides start here -->
+<header>
+    <div class="slide">
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <img height="auto" src="{% static 'images/simonmulumba-cmoncy images-25.jpg' %}" class="d-block w-100" alt="slide">
+                <div class="carousel-caption d-none d-md-block">
+                  <h2>Menengai Oil Refinaries Limited</h2>
+                  <p>Some representative placeholder content for the first slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img height="auto" src="{% static 'images/wash_hands.jpg' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Second slide label</h5>
+                  <p>Some representative placeholder content for the second slide.</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img height="auto" src="{% static 'images/architect.jpg' %}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>Third slide label</h5>
+                  <p>Some representative placeholder content for the third slide.</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+</header>
+<!-- slides end here -->
+<div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <div class="desc">
+              <h1>Quality <br>
+
+                Professional <br>
+                
+                Personal <br>
+                <br><br>
+            </h1>
+
+          </div>
+      </div>
+      <div class="col-md-6">
+          <h1>Menengai Oil Refineries Ltd.</h1>
+          <p>At Menengai Oil Refineries Ltd (MORL), the satisfaction of our customer’s needs is critical to our success, and we believe in providing our customers with the high-quality products they deserve.
+
+ 
+
+            Menengai is one of the leading providers for quality home care products in East Africa; inclusive of cooking oil, fats, soaps, detergents, baking powder and skin care products.
+            
+             
+            
+            Not only do we strive to meet the needs of all individuals within Kenya through the delivery of our products, but we also endeavour to make a difference in and around our community, sponsoring charitable organisations and donating goods to those in need.</p>
+      </div>
+    </div>
+    <h1>Explore Our Brands</h1>
+    <div class="brands">
+    </div>
+
+
+<h1>New Release and Events</h1>
+       
+</div>
+
+
+{% endblock %}

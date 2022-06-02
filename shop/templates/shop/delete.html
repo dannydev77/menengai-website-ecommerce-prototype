@@ -1,0 +1,15 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+
+{% block content %}
+<!--  a form to create content -->
+<div class="container">
+    <h3>Delete Item</h3>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>Are you sure you want to delete "{{ item }}"</p>
+        <p class="alert alert-danger">This process cannot be undone!</p>
+        <input class="btn btn-danger" type="submit" value="Confirm Delete" />
+    </form>
+</div>
+{% endblock %}

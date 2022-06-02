@@ -1,0 +1,94 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+
+{% block content %}
+<section>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <nav aria-label="breadcrumb mt-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item"><a href="{% url 'store' %}">Shop</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Product details</li>
+                </ol>
+            </nav>
+            <h3 class="text-center">{{ product.name }}</h3>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="border m-2 p-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ product.image.url }}" width="100%" height="auto" alt="">
+                </div>
+                <div class="col-md-6">
+                    <h1 class="mt-2">{{ product.name }}</h1>
+
+                    <hr>
+
+                    <h4>Price: Ksh {{ product.price }}</h4>
+                    <button data-product="{{ product.id }}" data-action="add"
+                            class="btn btn-outline-primary update-cart"><i class="fas fa-cart-plus"> Add to Cart</i>
+                    </button>
+                    <a href="{% url 'checkout' %}" class="btn btn-outline-success m-2" target="">Proceed to checkout
+                        &rarr;</a>
+
+                    <h2>Description</h2>
+                    <p>{{ product.description }}</p>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+
+                    <h2>Leave a Review</h2>
+                    <div class="form-group">
+                        <form action="" method="post">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                       placeholder="Your name..">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                            </div>
+                        </form>
+
+                        <input type="submit" value="Submit" class="btn btn-primary">
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                    <h2>Reviews</h2>
+                    <div style="overflow: scroll; height: 20.3125rem;">
+                        <p>John - 11 Nov 2021, 9:56 am</p>
+                        <p>sapien justo porta lectus, at mollis nisi orci et nulla. Donec
+                            pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere.
+                            Integer
+                            finibus
+                            orci vitae vehicula placerat.</p>
+                        <hr>
+                        <p>John - 11 Nov 2021, 9:56 am</p>
+                        <p>sapien justo porta lectus, at mollis nisi orci et nulla. Donec
+                            pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere.
+                            Integer
+                            finibus
+                            orci vitae vehicula placerat.</p>
+                        <hr>
+                        <p>John - 11 Nov 2021, 9:56 am</p>
+                        <p>sapien justo porta lectus, at mollis nisi orci et nulla. Donec
+                            pellentesque tortor vel nisl commodo ullamcorper. Donec varius massa at semper posuere.
+                            Integer
+                            finibus
+                            orci vitae vehicula placerat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

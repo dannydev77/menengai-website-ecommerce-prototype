@@ -1,0 +1,121 @@
+        .desc {
+            
+            background-image: url(/static/images/shutterstock.png);
+            background-attachment: fixed;
+            background-repeat: repeat-y;
+            margin: 5px 0;
+            padding: 10px 0 0 20px;
+            color: white;
+        }
+        .brands {
+            background-image: url(/static/images/our\ brands.png);
+            background-repeat: no-repeat;
+            
+            height: 750px;
+        }
+
+        #cart-item {
+            width: 25px;
+            display: inline-block;
+            margin-left: 15px;
+        }
+
+        .bg-dark {
+            background-color: #e6ffe6!important
+        }
+        #cart-total {
+            display: inline-block;
+            text-align: right;
+            color: red;
+            font-weight: 600;
+            margin: 3px;
+
+
+        }
+        body::before {
+        display:block;
+        content: '';
+        height: 105px;
+        }
+        .links {
+        text-decoration: none;
+        }
+        #cart-container{
+            border-collapse: collapse;
+            width:100%;
+            table-layout: fixed;
+            }
+        
+        #cart-container thead {
+            background-color: gray;
+            font-weight: 700;
+            }
+        #cart-container thead td{
+            color: #fff;
+            border: none;
+            padding: 6px 0;
+            }
+        #cart-container table td {
+            border: 1px solid #eee;
+            text-align: center;
+        }
+        #cart-container table td:nth-child(1){
+        width: 150px;
+        }
+        #cart-container table td:nth-child(2),
+        #cart-container table td:nth-child(3){
+        width: 200px;
+        }
+
+        #cart-container table td:nth-child(4),
+        #cart-container table td:nth-child(5)
+        #cart-container table td:nth-child(6){
+        width: 170px;
+        }
+        #cart-container table tbody img {
+        width: 200px;
+        height: 70px;
+        object-fit: cover;
+        }
+        #cart-container table tbody i {
+        color: grey;
+        }
+        #cart-bottom .coupon>div,
+        #cart-bottom .total{
+        border: 1px solid grey;
+        }
+        #cart-bottom .coupon h5,
+        #cart-bottom .total h5 {
+        background: gray;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        font-weight: 700;
+        }
+        #cart-bottom .coupon p,
+        #cart-bottom .coupon input {
+        padding: 0 12px;
+        }
+        #cart-bottom .coupon>div {
+        border: 1px solid grey;
+        }
+        #cart-bottom .total div>div {
+        padding: 0 12px;
+
+        }
+
+        #cart-bottom .total>button {
+        margin: 0 12px 20px 0;
+        display: flex;
+        justify-content: flex-end;
+
+        }
+
+
+        
+
+        * {
+            box-sizing: border-box;
+          }
+          
+         

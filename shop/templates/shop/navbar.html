@@ -1,0 +1,39 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand px-3 mt-2 mb-2" href="{% url 'home' %}">
+            <img style="width: 150px;height: 60px;" src="{% static 'images/logo.svg' %}" alt="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item px-2">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><strong>Home</strong></a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link active" aria-current="page" href="{% url 'about' %}"><strong>About Us</strong></a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link active" aria-current="page" href="{% url 'careers' %}"><strong>Careers</strong></a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link active" aria-current="page" href="{% url 'contact' %}"><strong>Contact</strong></a>
+                </li>
+                <li class="nav-item px-2">
+                    <a class="nav-link active" aria-current="page" href="{% url 'store' %}"><strong>Shop </strong></a>
+                </li>
+
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <a href="#" class="btn btn-outline-info px-4">Login</a>
+<!--                <a href="{% url 'cart' %}"><img id="cart-icon" src="{% static 'images/cart.png' %}" alt=""></a>-->
+                        <a href="{% url 'cart' %}" class="btn btn-outline-success px-4"><i class="fas fa-cart-plus cart-item"></i> <p style="font-size: 14px;" id="cart-total">{{ cart_items }}</p></a>
+                        <p style="font-size: 19px;" id="cart-total">{{ get_cart_total }}</p>
+
+            </div>
+        </div>
+    </div>
+</nav> 

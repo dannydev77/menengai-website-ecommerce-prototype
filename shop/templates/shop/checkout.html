@@ -1,0 +1,229 @@
+{% extends 'shop/main.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mt-3">
+                    <li class="breadcrumb-item"><a href="{% url 'store' %}">Shop</a></li>
+
+                    <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                </ol>
+            </nav>
+            <h2 class="text-center">Checkout</h2>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="row">
+            <!--            <div class="col-md-2"></div>-->
+            <div class="col-md-7">
+                <div class="border m-2 p-2">
+
+                    <h2>Billing details..</h2>
+                    <hr>
+                    <form class="row g-3 needs-validation" id="form" novalidate>
+                        <div class="col-md-6">
+                            <label for="validationCustom01" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="validationCustom01" placeholder="Your name"
+                                   value="" required>
+                            <div class="valid-feedback">
+                                Name looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide a valid name!
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationCustom02" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="validationCustom02"
+                                   placeholder="Email address" value="" required>
+                            <div class="valid-feedback">
+                                Email looks good!
+                            </div>
+                            <div class="invalid-feedback">
+                                Please provide a valid email address
+                            </div>
+                        </div>
+                        <div id="shipping-detail">
+                            <h2>Shipping Information</h2>
+                            <hr>
+                            <div class="col-md-6">
+                                <label for="validationCustom02" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="validationCustom03"
+                                       placeholder="+254 700 000 000" value="" required>
+                                <div class="valid-feedback">
+                                    Number looks good
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please provide a valid phone number
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="validationCustom02" class="form-label">Company name(Optional)</label>
+                                <input type="text" class="form-control" placeholder="Your company/ business name"
+                                       value="">
+                                <div class="valid-feedback">
+                                    Applicable
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="validationCustom03" class="form-label">County/Town</label>
+                                <input type="text" class="form-control" id="validationCustom04" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city, county or town
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom03" class="form-label">Country/State</label>
+                                <input type="text" class="form-control" id="validationCustom05" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid state.
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-3">
+                                <label for="validationCustom05" class="form-label">PostalCode/Zip</label>
+                                <input type="text" class="form-control" id="validationCustom06" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid zip.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom03" class="form-label">Address</label>
+                                <input type="text" class="form-control" id="validationCustom07"
+                                       placeholder="street name" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid address.
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                    <label class="form-check-label" for="invalidCheck">
+                                        Agree to terms and conditions
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="d-grid gap-2">
+                                <input type="submit" id="form-submit-btn" class="btn btn-primary btn-block" value="Continue">
+<!--                                <button class="btn btn-primary " type="submit">Continue</button>-->
+                            </div>
+
+
+
+                    </form>
+
+
+                </div>
+                <br>
+                <div style="background: blue; color:white;" class="hidden" id="payment-form">
+                    <small>Payment Options</small>
+                    <button id="make-payment">Make payment</button>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-5 border ml-0 p-2">
+                <div class="section">
+                    <a href="{% url 'cart' %}" class="btn btn-outline-primary">&larr; Back to Cart</a>
+                    <section id="cart-container" class="container">
+                        <div class="row my-4">
+                            <h1><strong class="text-muted">Your Order Summary</strong></h1>
+                            <table style="display: block; overflow-x: auto;" width="100%">
+                                <thead>
+                                <tr>
+                                    <td>Product</td>
+                                    <td>Price</td>
+                                    <td>Quantity</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in items %}
+                                <tr>
+                                    <td><p>{{ item.product.name }}</p></td>
+                                    <td><p>{{ item.product.price }}</p></td>
+                                    <td><input style="width: 50%;" class="pl-1" value="{{ item.quantity }}"
+                                               type="number"></td>
+                                </tr>
+                                {% empty %}
+                                <h3 class="alert alert-warning">No Items in the Cart</h3>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                            <br>
+                            <hr class="mb-4 mt-4">
+                            <div class="d-flex justify-content-between">
+
+                                <p><strong>Total Items</strong></p>
+                                <h6><strong>{{ order.get_cart_items }}</strong></h6>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+
+                                <p><strong>Flat shipping rates</strong></p>
+                                <h6>500</h6>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between">
+
+                                <p><strong>Total Amount Payable</strong></p>
+                                <h6><strong>Ksh: {{ order.get_cart_total }}</strong></h6>
+                            </div>
+                            <hr>
+                            <p>Cash on delivery?</p>
+                            <h6 class="alert alert-info">Pay with cash upon delivery</h6>
+                            <p class="text-muted">
+                                Your personal data will be used to process your order, support your experience
+                                throughout this website, and for other purposes described in our privacy policy.
+                            </p>
+
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-secondary btn-lg" type="submit">Place Your Order
+                                    &rarr;
+                                </button>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+<script type=" text/javascript">
+
+    let shipping = '{{ order.shipping }}'
+    if(shipping == 'False'){
+    document.getElementById('shipping-detail').innerHTML = ''
+    }
+
+    let form = document.getElementById('form')
+
+    form.addEventListener('submit', function(e){
+    e.preventDefault()
+    console.log('form submitted')
+    document.getElementById('form-submit-btn').classList.add('hidden')
+    document.getElementById('payment-form').classList.remove('hidden')
+
+    })
+</script>
+{% endblock %}

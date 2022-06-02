@@ -1,0 +1,281 @@
+html {-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;}
+
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+/*Global colors */
+:root {
+    --bg-color: #f1f1f1;
+    --bg-color1: #f2f2f2; 
+    --nav-color:#264d00;
+    --footer: #cccc99;
+    --header: #77773c;
+    --iconsbackground: #3B599;
+    --icon-color: white;
+    --hover-color:  #b8b894;
+    --button-color: #999966;
+    
+
+}
+
+
+
+/* GRID */
+.row {
+  clear: both;
+}
+.background-color{
+  background-color: var(--bg-color1);
+}
+
+
+
+.limited {
+    max-width: 1140px; 
+    margin: auto;
+}
+
+.column {
+  float: left; 
+  padding: 0 1vw;
+  margin: 0 0 .75rem 0;
+}
+
+
+.small-12 {
+  width: 100%;
+}
+
+.small-6 {
+  width: 50%;
+}
+
+
+
+/* header rules */
+header {
+    background-color: var(--header);
+}
+header img {
+    float: left; 
+    height: 85px;
+    padding-right: 10px; 
+    
+}
+header h1, header h2 {
+    margin: 0;
+    color: #fff; 
+    font-weight: 300;
+    font-style: italic;
+}
+header h1 { 
+	padding: .5rem 0 0 0; 
+	font-size: 1.95rem;
+}
+header h2{
+	padding: .2rem 0 0 0; 
+	font-size:1.05rem;    
+}
+
+
+/* navigation rules */
+button#hamburgerBtn { 
+    background: none;
+    border:none;
+    color: var(--button-color);
+    font-size: 2.4rem;
+    cursor: pointer;
+    padding: 0 30px 0 2vw;
+}
+
+nav {
+  background-color: var(--nav-color);
+}
+
+nav ul{
+  margin:0; 
+  padding: 0;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+nav a {
+    display: block;
+    padding: .8rem 0; 
+    color: #eee;
+    text-align: center;
+    text-decoration: none;
+}
+nav li.active {background-color: rgba(0,0,0,0.5);}
+nav a:hover {background-color: rgba(0,0,0,0.2);}
+nav ul.open {display: block;}
+nav ul {display: none;}
+
+
+main img {
+	width: 100%;
+	height: auto;
+}
+main {
+    background-color: var(--bg-color);
+}
+
+main h1, main h3 main h5 {
+    color: #9b87b8;
+    font-style: italic;
+    margin: .5rem 0 .1rem 0;
+    
+}
+main h1{font-size: 2rem;}
+main h3{font-size: 1.2rem;}
+
+main p {
+    font-size: 1.2rem;
+    margin: 0 0 .3rem 0;
+}
+
+
+
+
+
+.labeled {position: relative;}
+.labeled h6, .labeled p {
+    position: absolute;
+    background-color: rgba(255,255,255,.7);
+    margin: 0;
+    width: 100%;
+    padding: .3rem 1rem;   
+}
+.labeled h6 {
+    top: 0;
+    font-size: 2rem;
+    font-weight: 300;
+}
+.labeled p {
+    bottom: 0;
+    font-weight: 700;
+    color: #b00;
+}
+
+
+/*social media*/
+.fa {
+  /*padding: 20px;
+  font-size: 30px;
+  width: 50px;*/
+  text-align: center;
+  text-decoration: none; 
+  margin: 5px 2px;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: var(--iconsbackground);
+  color: var(----icon-color);
+}
+
+.fa-twitter {
+  background: var(--iconsbackground);
+  color: var(----icon-color);
+}
+
+.fa-youtube {
+  background: var(--iconsbackground);
+  color: var(----icon-color);
+}
+
+
+
+
+
+footer{
+    background-color: var(--footer);
+    font-size: 1.2rem;
+}
+footer h2 {
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 1rem 0 .3rem 0;
+}
+
+
+
+.clearfix:after {
+  content: ""; 
+  display: table;
+  clear: both;
+}
+
+.grid-container {
+  display: grid;
+  height: 400px;
+  align-content: space-evenly;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+/*/*transitions*/
+
+/*.transition {
+  width: 100px;
+  height: 100px;
+  
+  transition: width 2s, height 4s;
+}
+
+.transition:hover {
+  width: 300px;
+  height: 300px;
+  background: var(--hover-color);
+/*}
+
+/*card css*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  max-height: auto;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+  font-style: italic;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 5px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 30%;
+  font-size: 18px;
+  
+
+}
+
+.padding-top {
+padding-top: 10px;
+}
+
+.center {
+    text-align: center!important;
+
